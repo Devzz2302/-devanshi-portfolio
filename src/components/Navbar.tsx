@@ -1,0 +1,4 @@
+import {Github, Linkedin, Mail, Menu, Phone, X} from 'lucide-react';
+import {useState} from 'react';
+import {profile} from '../data/portfolio';
+export default function Navbar(){const [open,setOpen]=useState(false); const links=[['about','About Me'],['projects','Projects'],['experience','Experience'],['profiles','Tech Profiles'],['contact','Contact Me']];return <header className="nav"><a className="brand" href="#top">D<span>P</span></a><nav className={open?'navlinks open':'navlinks'}>{links.map(([id,l])=><a key={id} href={'#'+id} onClick={()=>setOpen(false)}>{l}</a>)}</nav><div className="navsocial"><a href={profile.github} target="_blank" aria-label="GitHub"><Github/></a><a href={profile.linkedin} target="_blank" aria-label="LinkedIn"><Linkedin/></a><a href={'mailto:'+profile.email} aria-label="Email"><Mail/></a></div><button className="menu" onClick={()=>setOpen(!open)} aria-label="Toggle menu">{open?<X/>:<Menu/>}</button></header>}
